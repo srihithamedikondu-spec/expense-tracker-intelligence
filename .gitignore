@@ -1,7 +1,7 @@
-.env
-*.db
-monthly_reports/
 venv/
 node_modules/
 __pycache__/
 *.pyc
+.env
+*.db
+monthly_reports/
