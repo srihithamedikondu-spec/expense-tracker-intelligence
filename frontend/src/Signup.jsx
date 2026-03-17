@@ -9,7 +9,7 @@ function Signup({ setShowSignup }) {
 
     e.preventDefault();
 
-    const res = await fetch("http://127.0.0.1:8000/register",{
+    const res = await fetch("https://expense-tracker-intelligence.onrender.com/register",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

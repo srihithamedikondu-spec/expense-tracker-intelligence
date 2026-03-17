@@ -39,37 +39,37 @@ function Dashboard() {
   // API CALLS
 
   const fetchExpenses = async () => {
-    const res = await fetch(`http://127.0.0.1:8000/expenses/${userId}`);
+    const res = await fetch(`https://expense-tracker-intelligence.onrender.com/expenses/${userId}`);
     const data = await res.json();
     setExpenses(data);
   };
 
   const fetchReport = async () => {
-    const res = await fetch(`http://127.0.0.1:8000/monthly-report/${userId}`);
+    const res = await fetch(`https://expense-tracker-intelligence.onrender.com/monthly-report/${userId}`);
     const data = await res.json();
     setReport(data);
   };
 
   const fetchStreak = async () => {
-    const res = await fetch(`http://127.0.0.1:8000/streak/${userId}`);
+    const res = await fetch(`https://expense-tracker-intelligence.onrender.com/streak/${userId}`);
     const data = await res.json();
     setStreak(data.current_streak);
   };
 
   const fetchForecast = async () => {
-    const res = await fetch(`http://127.0.0.1:8000/spending-forecast/${userId}`);
+    const res = await fetch(`https://expense-tracker-intelligence.onrender.com/spending-forecast/${userId}`);
     const data = await res.json();
     setForecast(data.predicted_monthly_spending);
   };
 
   const fetchTrend = async () => {
-    const res = await fetch(`http://127.0.0.1:8000/expense-trend/${userId}`);
+    const res = await fetch(`https://expense-tracker-intelligence.onrender.com/expense-trend/${userId}`);
     const data = await res.json();
     setTrend(data.trend);
   };
 
   const downloadReport = () => {
-    window.open(`http://127.0.0.1:8000/download-report/${userId}`);
+    window.open(`https://expense-tracker-intelligence.onrender.com/download-report/${userId}`);
   };
 
   useEffect(() => {
@@ -92,7 +92,7 @@ function Dashboard() {
 
     try {
 
-      const res = await fetch("http://127.0.0.1:8000/expense", {
+      const res = await fetch("https://expense-tracker-intelligence.onrender.com/expense", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -123,7 +123,7 @@ function Dashboard() {
   };
 
   const deleteExpense = async (id) => {
-    await fetch(`http://127.0.0.1:8000/expense/${id}`, {
+    await fetch(`https://expense-tracker-intelligence.onrender.com/expense/${id}`, {
       method: "DELETE"
     });
 
@@ -134,7 +134,7 @@ function Dashboard() {
   const updateCategory = async (expenseId, newCategory) => {
 
     await fetch(
-      `http://127.0.0.1:8000/correct-category/${expenseId}?new_category=${newCategory}`,
+      `https://expense-tracker-intelligence.onrender.com/correct-category/${expenseId}?new_category=${newCategory}`,
       {
         method: "POST"
       }
@@ -149,7 +149,7 @@ function Dashboard() {
 
     if (!budget) return;
 
-    await fetch(`http://127.0.0.1:8000/set-budget?amount=${budget}&user_id=${userId}`, {
+    await fetch(`https://expense-tracker-intelligence.onrender.com/set-budget?amount=${budget}&user_id=${userId}`, {
       method: "POST"
     });
 
